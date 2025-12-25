@@ -33,8 +33,8 @@ class PagesController < ApplicationController
     # Fallback if no release notes are available
     if @release_notes.nil?
       @release_notes = {
-        avatar: "https://github.com/aurabok-finance.png",
-        username: "aurabok-finance",
+        avatar: "https://github.com/icecmach.png",
+        username: "icecmach",
         name: "Release notes unavailable",
         published_at: Date.current,
         body: "<p>Unable to fetch the latest release notes at this time. Please check back later or visit our <a href='https://github.com/icecmach/aurabok/releases' target='_blank'>GitHub releases page</a> directly.</p>"
