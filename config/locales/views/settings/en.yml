@@ -30,7 +30,8 @@ en:
         not_authorized: You are not authorized to remove members.
       show:
         confirm_delete:
-          body: Are you sure you want to permanently delete your account? This action
+          body:
+            Are you sure you want to permanently delete your account? This action
             is irreversible.
           title: Delete account?
         confirm_reset:
@@ -44,7 +45,8 @@ en:
           title: Remove Member
         danger_zone_title: Danger Zone
         delete_account: Delete account
-        delete_account_warning: Deleting your account will permanently remove all
+        delete_account_warning:
+          Deleting your account will permanently remove all
           your data and cannot be undone.
         reset_account: Reset account
         reset_account_warning: Resetting your account will delete all your accounts, categories, merchants, tags, and other data, but keep your user account intact.
@@ -52,7 +54,8 @@ en:
         first_name: First Name
         household_form_input_placeholder: Enter household name
         household_form_label: Household name
-        household_subtitle: Invite family members, partners and other inviduals.  Invitees
+        household_subtitle:
+          Invite family members, partners and other inviduals.  Invitees
           can login to your household and access your shared accounts.
         household_title: Household
         invitation_link: Invitation link
@@ -60,7 +63,7 @@ en:
         last_name: Last Name
         page_title: Account
         pending: Pending
-        profile_subtitle: Customize how you appear on Maybe
+        profile_subtitle: Customize how you appear on Aurabok
         profile_title: Profile
         remove_invitation: Remove Invitation
         remove_member: Remove Member

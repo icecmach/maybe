@@ -26,7 +26,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get changelog_path
     assert_response :ok
     assert_select "h2", text: "Release notes unavailable"
-    assert_select "a[href='https://github.com/maybe-finance/maybe/releases']"
+    assert_select "a[href='https://github.com/icecmach/aurabok/releases']"
   end
 
   test "changelog with incomplete release notes" do
@@ -34,7 +34,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     github_provider = mock
     incomplete_data = {
       avatar: nil,
-      username: "maybe-finance",
+      username: "aurabok-finance",
       name: "Test Release",
       published_at: nil,
       body: nil

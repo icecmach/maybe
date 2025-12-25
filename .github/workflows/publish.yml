@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: 'Git ref (tag or commit SHA) to build'
+        description: "Git ref (tag or commit SHA) to build"
         required: true
-        type: string 
-        default: 'main'
+        type: string
+        default: "main"
   push:
     tags:
-      - 'v*'
+      - "v*"
     branches:
       - main
 
@@ -27,7 +27,7 @@ jobs:
 
   build:
     name: Build docker image
-    needs: [ ci ]
+    needs: [ci]
 
     timeout-minutes: 60
 
@@ -76,10 +76,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          platforms: 'linux/amd64,linux/arm64'
+          platforms: "linux/amd64,linux/arm64"
           cache-from: type=gha
           cache-to: type=gha,mode=max
           provenance: false
           # https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#adding-a-description-to-multi-arch-images
-          outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=A multi-arch Docker image for the Maybe Rails app
+          outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=A multi-arch Docker image for the Aurabok Rails app
           build-args: BUILD_COMMIT_SHA=${{ github.sha }}

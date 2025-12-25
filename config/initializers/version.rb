@@ -1,4 +1,4 @@
-module Maybe
+module Aurabok
   class << self
     def version
       Semver.new(semver)

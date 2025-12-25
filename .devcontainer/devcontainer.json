@@ -1,5 +1,5 @@
 {
-  "name": "Maybe",
+  "name": "Aurabok",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
@@ -13,10 +13,7 @@
   "postCreateCommand": "bundle install && npm install",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "biomejs.biome",
-        "EditorConfig.EditorConfig"
-      ]
+      "extensions": ["biomejs.biome", "EditorConfig.EditorConfig"]
     }
   }
 }
