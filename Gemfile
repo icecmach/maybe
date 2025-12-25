@@ -115,5 +115,5 @@ group :test do
   gem "webmock"
   gem "climate_control"
   gem "simplecov", require: false
-  gem "minitest", "~> 5.25.5"
+  gem "minitest", "~> 5.27"
 end
