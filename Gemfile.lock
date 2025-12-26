@@ -524,7 +524,7 @@ GEM
       ffi (~> 1.12)
       logger
     ruby2_keywords (0.0.5)
-    rubyzip (2.4.1)
+    rubyzip (3.2.2)
     sawyer (0.9.3)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
@@ -685,7 +685,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   ruby-lsp-rails
   ruby-openai
-  rubyzip (~> 2.3)
+  rubyzip (~> 3.2)
   selenium-webdriver
   sentry-rails
   sentry-ruby
