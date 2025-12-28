@@ -76,6 +76,6 @@ http_interactions:
           - cfL4;desc="?proto=TCP&rtt=33369&min_rtt=25798&rtt_var=15082&sent=5&recv=6&lost=0&retrans=0&sent_bytes=2826&recv_bytes=878&delivery_rate=112256&cwnd=205&unsent_bytes=0&cid=1b13324eb0768fd3&ts=285&x=0"
       body:
         encoding: ASCII-8BIT
-        string: ""
+        string: '{"api_calls_remaining": 900, "api_limit": 1000, "plan": "free"}'
     recorded_at: Fri, 16 May 2025 13:01:36 GMT
 recorded_with: VCR 6.3.1

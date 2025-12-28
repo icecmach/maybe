@@ -1,6 +1,6 @@
 x-db-env: &db_env
   POSTGRES_USER: postgres
-  POSTGRES_DB: postgres
+  POSTGRES_DB: aurabok_development
   POSTGRES_PASSWORD: postgres
 
 x-rails-env: &rails_env
@@ -52,7 +52,7 @@ services:
     volumes:
       - redis-data:/data
   db:
-    image: postgres:latest
+    image: postgres:16
     restart: unless-stopped
     volumes:
       - postgres-data:/var/lib/postgresql/data

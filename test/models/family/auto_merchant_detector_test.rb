@@ -3,6 +3,8 @@ require "test_helper"
 class Family::AutoMerchantDetectorTest < ActiveSupport::TestCase
   include EntriesTestHelper, ProviderTestHelper
 
+  AutoDetectedMerchant = Struct.new(:transaction_id, :business_name, :business_url)
+
   setup do
     @family = families(:dylan_family)
     @account = @family.accounts.create!(name: "Rule test", balance: 100, currency: "USD", accountable: Depository.new)
@@ -36,7 +38,4 @@ class Family::AutoMerchantDetectorTest < ActiveSupport::TestCase
     # After auto-detection, all transactions are locked and no longer enrichable
     assert_equal 0, @account.transactions.reload.enrichable(:merchant_id).count
   end
-
-  private
-    AutoDetectedMerchant = Provider::LlmConcept::AutoDetectedMerchant
 end

@@ -18,10 +18,20 @@ ENV["PLAID_SECRET"] ||= "test_secret"
 ENV["PGGSSENCMODE"] = "disable"
 
 require "rails/test_help"
-require "minitest/mock"
+require "minitest"
 require "minitest/autorun"
 require "mocha/minitest"
 require "aasm/minitest"
+
+# Monkey patch for Rails LineFiltering to work with Minitest 6.0
+module Rails
+  module LineFiltering
+    def run(reporter, *args)
+      # Skip line filtering to avoid compatibility issues with Minitest 6.0
+      super
+    end
+  end
+end
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/vcr_cassettes"
@@ -29,29 +39,24 @@ VCR.configure do |config|
   config.ignore_localhost = true
   config.default_cassette_options = { erb: true }
   config.filter_sensitive_data("<SYNTH_API_KEY>") { ENV["SYNTH_API_KEY"] }
-  config.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { ENV["OPENAI_ACCESS_TOKEN"] }
-  config.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { ENV["OPENAI_ORGANIZATION_ID"] }
   config.filter_sensitive_data("<STRIPE_SECRET_KEY>") { ENV["STRIPE_SECRET_KEY"] }
   config.filter_sensitive_data("<STRIPE_WEBHOOK_SECRET>") { ENV["STRIPE_WEBHOOK_SECRET"] }
   config.filter_sensitive_data("<PLAID_CLIENT_ID>") { ENV["PLAID_CLIENT_ID"] }
   config.filter_sensitive_data("<PLAID_SECRET>") { ENV["PLAID_SECRET"] }
 end
 
+require "rails/test_help"
+require "minitest"
+require "minitest/autorun"
+require "mocha"
+require "aasm/minitest"
+
 module ActiveSupport
   class TestCase
+    include Mocha::API
+
     # Run tests in parallel with specified workers
-    parallelize(workers: :number_of_processors) unless ENV["DISABLE_PARALLELIZATION"] == "true"
-
-    # https://github.com/simplecov-ruby/simplecov/issues/718#issuecomment-538201587
-    if ENV["COVERAGE"] == "true"
-      parallelize_setup do |worker|
-        SimpleCov.command_name "#{SimpleCov.command_name}-#{worker}"
-      end
-
-      parallelize_teardown do |worker|
-        SimpleCov.result
-      end
-    end
+    parallelize(workers: 0)
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
@@ -71,7 +76,7 @@ module ActiveSupport
     end
 
     def user_password_test
-      "auraboktestpassword817983172"
+      "maybetestpassword817983172"
     end
   end
 end

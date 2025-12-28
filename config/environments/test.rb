@@ -75,4 +75,12 @@ Rails.application.configure do
   config.autoload_paths += %w[test/support]
 
   config.action_mailer.default_url_options = { host: "example.com" }
+
+  # Plaid configuration for tests
+  config.plaid = Plaid::Configuration.new.tap do |plaid_config|
+    plaid_config.server_index = Plaid::Configuration::Environment["sandbox"]
+    plaid_config.api_key["PLAID-CLIENT-ID"] = ENV["PLAID_CLIENT_ID"] || "test_client_id"
+    plaid_config.api_key["PLAID-SECRET"] = ENV["PLAID_SECRET"] || "test_secret"
+    plaid_config.base_path = "https://sandbox.plaid.com"
+  end
 end

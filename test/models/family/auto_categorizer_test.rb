@@ -3,6 +3,8 @@ require "test_helper"
 class Family::AutoCategorizerTest < ActiveSupport::TestCase
   include EntriesTestHelper, ProviderTestHelper
 
+  AutoCategorization = Struct.new(:transaction_id, :category_name)
+
   setup do
     @family = families(:dylan_family)
     @account = @family.accounts.create!(name: "Rule test", balance: 100, currency: "USD", accountable: Depository.new)
@@ -36,7 +38,4 @@ class Family::AutoCategorizerTest < ActiveSupport::TestCase
     # After auto-categorization, all transactions are locked and no longer enrichable
     assert_equal 0, @account.transactions.reload.enrichable(:category_id).count
   end
-
-  private
-    AutoCategorization = Provider::LlmConcept::AutoCategorization
 end

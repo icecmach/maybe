@@ -4,7 +4,6 @@ class AddUserGoals < ActiveRecord::Migration[7.2]
     add_column :users, :set_onboarding_preferences_at, :datetime
     add_column :users, :set_onboarding_goals_at, :datetime
 
-    add_column :families, :trial_started_at, :datetime
     add_column :families, :early_access, :boolean, default: false
 
     reversible do |dir|
