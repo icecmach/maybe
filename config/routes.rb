@@ -41,7 +41,6 @@ Rails.application.routes.draw do
     collection do
       get :preferences
       get :goals
-      get :trial
     end
   end
 

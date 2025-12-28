@@ -248,7 +248,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
     t.datetime "updated_at", null: false
     t.string "currency", default: "USD"
     t.string "locale", default: "en"
+    t.string "stripe_plan_id"
     t.string "stripe_customer_id"
+    t.string "stripe_subscription_status", default: "incomplete"
     t.string "date_format", default: "%m-%d-%Y"
     t.string "country", default: "US"
     t.string "timezone"
@@ -739,8 +741,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_24_115507) do
     t.string "otp_backup_codes", default: [], array: true
     t.boolean "show_sidebar", default: true
     t.string "default_period", default: "last_30_days", null: false
-    t.boolean "show_ai_sidebar", default: true
-    t.boolean "ai_enabled", default: false, null: false
     t.string "theme", default: "system"
     t.boolean "rule_prompts_disabled", default: false
     t.datetime "rule_prompt_dismissed_at"
