@@ -23,11 +23,7 @@ gem "lucide-rails", github: "heyvito/lucide-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "view_component"
-
-# https://github.com/lookbook-hq/lookbook/issues/712
-# TODO: Remove max version constraint when fixed
-gem "lookbook", "2.3.11"
-
+gem "lookbook", "~> 2.3"
 gem "hotwire_combobox"
 
 # Background Jobs
@@ -44,7 +40,7 @@ gem "logtail-rails"
 gem "skylight", groups: [ :production ]
 
 # Active Storage
-gem "aws-sdk-s3", "~> 1.177.0", require: false
+gem "aws-sdk-s3", "~> 1.177", require: false
 gem "image_processing", ">= 1.2"
 
 # Other
@@ -82,7 +78,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows]
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
-  gem "rubocop", "~> 1.76.1"
+  gem "rubocop", "1.82.0"
   gem "i18n-tasks"
   gem "erb_lint"
   gem "dotenv-rails"
@@ -112,4 +108,5 @@ group :test do
   gem "webmock"
   gem "climate_control"
   gem "simplecov", require: false
+  gem "minitest", "5.27.0"
 end
