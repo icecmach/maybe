@@ -21,14 +21,6 @@
     ) %>
   </div>
 </header>
-<% if self_hosted? %>
-  <div class="flex items-center gap-2 mb-2 py-4">
-    <%= icon("circle-alert", size: "sm") %>
-    <p class="text-sm text-secondary">
-      AI-enabled rule actions will cost money.  Be sure to filter as narrowly as possible to avoid unnecessary costs.
-    </p>
-  </div>
-<% end %>
 <div class="bg-container rounded-xl shadow-border-xs p-4">
   <% if @rules.any? %>
     <div class="bg-container-inset rounded-xl">

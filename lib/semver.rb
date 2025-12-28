@@ -24,7 +24,7 @@ class Semver
   end
 
   def to_release_tag
-    "v#{@version_string}"
+    @version_string
   end
 
   def self.from_release_tag(tag)
