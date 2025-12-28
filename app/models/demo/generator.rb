@@ -147,6 +147,8 @@ class Demo::Generator
         password: "password",
         onboarded_at: onboarded ? Time.current : nil
       )
+
+      family
     end
 
     def create_realistic_categories!(family)
